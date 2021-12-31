@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Exploring Web Extensions",
+  "version": "1.0",
+
+  "description": "Does something interesting?",
+
+  "browser_action": {
+    "default_title": "Brooks Builds",
+    "default_popup": "yew_web_extension/dist/index.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:8080/*"],
+      "js": ["yew_web_extension/dist/index-b2cec343351f167f.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "yew_web_extension/dist/index-b2cec343351f167f_bg.wasm"
+  ],
+
+  "content_security_policy": "script-src 'self' http://localhost:8080/index-b2cec343351f167f.js; object-src 'self'"
+}
